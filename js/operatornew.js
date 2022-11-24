@@ -37,16 +37,16 @@
 
 
 // 4. Створення методів у конструкторі
-function UserName(name, surname = '') {
-    this.name = name;
-    this.surname = surname;
-    this.fullName = name + ' ' + surname;
-    this.sayHi = function () {
-        console.log('Your name is:', this.fullName);
-    };
-}
-const oksana = new UserName('Oksana', 23);
-oksana.sayHi();
+// function UserName(name, surname = '') {
+//     this.name = name;
+//     this.surname = surname;
+//     this.fullName = name + ' ' + surname;
+//     this.sayHi = function () {
+//         console.log('Your name is:', this.fullName);
+//     };
+// }
+// const oksana = new UserName('Oksana', 23);
+// oksana.sayHi();
 
 
 // 5. Чи можливо створити функції A та B, щоб new A() == new B()?
@@ -65,20 +65,47 @@ oksana.sayHi();
 // console.log( a === b ); // true
 
 
-// Створіть функцію-конструктор Calculator, який створює об’єкти з трьома методами:
+// 6. Створіть функцію-конструктор Calculator, який створює об’єкти з трьома методами:
 // read() запитує два значення за допомогою prompt і запам’ятовує їх у властивостях об’єкта.
 // sum() повертає суму цих властивостей.
 // mul() повертає результат множення даних властивостей.
 
-let calculator = new Calculator() {
-    this.a = prompt('Enter Number 1, 0);
-    this.b = prompt('Enter Number 2', 0);
-    
-    this.read = function () {
-        
-    }
-};
-calculator.read();
+// function Calculator() {
+//     this.read = function () {
+//             this.a = +prompt('a', 0);
+//             this.b = +prompt('b', 0);
+//     },
+//     this.sum = function () {
+//         console.log(this.a);
+//         return this.a + this.b;
+//         },
+//     this.mul = function () {
+//         return this.a * this.b;
+//         }
+// };
+// let calculator = new Calculator();
+// console.log(calculator);
+// calculator.read();
+// console.log( "Sum=" + calculator.sum() );
+// console.log("Mul=" + calculator.mul());
 
-alert( "Sum=" + calculator.sum() );
-alert( "Mul=" + calculator.mul() );
+
+// 7. Створіть функцію-конструктор Accumulator(startingValue).
+// Об’єкт, який він створює повинен:
+// Зберігати “поточне значення” у властивості value. Початкове значення має значення аргументу конструктора startingValue.
+// Метод read() повинен використовувати prompt для зчитування нового числа та додавати його до value.
+// Іншими словами, властивість value – це сума всіх введенних користувачем значень разом із початковим значенням startingValue.
+
+// function Accumulator(startingValue) {
+//     this.value = startingValue;
+//     this.read = function () {
+//         let newValue = +prompt('enter new vaue', 0);
+//         return this.value += newValue;
+//     }
+// };
+// let accumulator = new Accumulator(1); // початкове значення 1
+// console.log(accumulator);
+// accumulator.read(); // додає введене користувачем значення
+// accumulator.read(); // додає введене користувачем значення
+
+// console.log(accumulator.value);
