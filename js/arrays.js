@@ -92,7 +92,6 @@
 // console.log(sumInput());
 
 
-
 // Метод arr.splice – це універсальний «швейцарський ніж» для роботи з масивами. Вміє все: додавати, видаляти і замінювати елементи.
 // arr.splice(start[, deleteCount, elem1, ..., elemN])
 // let arr = ["I", "study", "JavaScript"];
@@ -132,6 +131,11 @@
 // console.log(arr);
 // let newArr = arr.slice(0, 2);
 // console.log(newArr);
+
+
+// let array7 = ["t", "e", "s", "t"];
+// console.log( array7.slice(1, 3) ); // e,s (копіює з 1 до 3)
+// console.log( array7.slice(-2) ); // s,t (копіює з -2 до кінця)
 
 
 // arr.concat(arg1, arg2...)
@@ -202,6 +206,76 @@
 // let str = "Oksana";
 // console.log(str.split('')); // [ O, k, s, a, n, a ];
 
-let arr = ["Oksana", "Dima", "Denys"];
-let str = arr.join('; '); // обʼєднуємо масив в рядок за допомогою ";
-console.log( str ); // 
+// let arr = ["Oksana", "Dima", "Denys"];
+// let str = arr.join('; '); // обʼєднуємо масив в рядок за допомогою ";
+// console.log(str); //
+
+
+// let arr = [1, 2, 3, 4, 5];
+// let summa = arr.reduce((sum, item) => sum += item, 0);
+// console.log(summa);
+
+
+// console.log(typeof (arr));
+// console.log(Array.isArray(arr));
+
+
+
+// function camelize(str) {
+//     let newArr = str.split('-');
+//     console.log(newArr);
+//     let arrayWithUpperFirstLetter = newArr.map((item, index) => {
+//        return  index === 0 ? item : item[0].toUpperCase() + item.slice(1);
+//     });
+//     console.log(arrayWithUpperFirstLetter);
+//     return arrayWithUpperFirstLetter.join('');
+// }
+// console.log(camelize("background-color"));
+
+
+
+// function filterRange(arr, a, b) {
+//     return arr.filter((item) => item >= a && item <= b)
+// };
+// let arr = [5, 3, 8, 1];
+// console.log(filterRange(arr, 1, 4));
+
+
+
+// let arr = [5, 2, 1, -10, 8];
+// console.log(arr.sort((a, b) => b - a));
+
+
+// let arr = ["HTML", "JavaScript", "CSS"];
+// function copySorted(arr) {
+//     let copyArr = arr.slice();
+//     console.log(copyArr);
+//     let compareCopyArr = copyArr.sort((a, b) => a.localeCompare(b));
+//     console.log(compareCopyArr);
+//     return compareCopyArr;
+// };
+// let sorted = copySorted(arr);
+// console.log( sorted ); // CSS, HTML, JavaScript
+// console.log( arr ); // HTML, JavaScript, CSS (без змін)
+
+let s = '1 + 2';
+console.log(s.split(' '));
+
+function Calculator() {
+    this.methods = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+    }
+    this.calculate = function (str) {
+        let arr = str.split(' ');
+        let a = +arr[0];
+        let operator = arr[1];
+        let b = +arr[2];
+
+        return this.methods[operator](a, b);
+    }
+}
+let calculator = new Calculator;
+console.log(calculator.calculate('4 - 2'));
+
+
