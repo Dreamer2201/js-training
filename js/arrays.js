@@ -258,24 +258,99 @@
 // console.log( sorted ); // CSS, HTML, JavaScript
 // console.log( arr ); // HTML, JavaScript, CSS (без змін)
 
-let s = '1 + 2';
-console.log(s.split(' '));
 
-function Calculator() {
-    this.methods = {
-        '+': (a, b) => a + b,
-        '-': (a, b) => a - b,
-    }
-    this.calculate = function (str) {
-        let arr = str.split(' ');
-        let a = +arr[0];
-        let operator = arr[1];
-        let b = +arr[2];
+// let s = '1 + 2';
+// console.log(s.split(' '));
 
-        return this.methods[operator](a, b);
-    }
-}
-let calculator = new Calculator;
-console.log(calculator.calculate('4 - 2'));
+// function Calculator() {
+//     this.methods = {
+//         '+': (a, b) => a + b,
+//         '-': (a, b) => a - b,
+//     }
+//     this.calculate = function (str) {
+//         let arr = str.split(' ');
+//         let a = +arr[0];
+//         let operator = arr[1];
+//         let b = +arr[2];
+
+//         return this.methods[operator](a, b);
+//     }
+//     this.addMethod = function (name, fn) {
+//         this.methods[name] = fn;
+//     }
+// }
+// let calculator = new Calculator;
+// console.log(calculator.calculate('4 - 2'));
+
+// let powerCalc = new Calculator;
+// powerCalc.addMethod("*", (a, b) => a * b);
+// powerCalc.addMethod("/", (a, b) => a / b);
+// powerCalc.addMethod("**", (a, b) => a ** b);
+
+// let result = powerCalc.calculate("2 ** 3");
+// console.log( result ); // 8
+
+
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
+// let users = [ ivan, petro, mariya ];
+// let names = users.map(item => item.name);
+// console.log( names ); // Іван, Петро, Марія
+
+
+// let ivan = { name: "Іван", surname: "Іванко", id: 1 };
+// let petro = { name: "Петро", surname: "Петренко", id: 2 };
+// let mariya = { name: "Марія", surname: "Мрійко", id: 3 };
+
+// let users = [ ivan, petro, mariya ];
+
+// let usersMapped = users.map(function (item) {
+//     return {
+//         id: item.id,
+//         fullName: `${item.name} ${item.surname}`
+//     }
+// });
+// console.log(usersMapped);
+
+
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
+
+// let arr = [ petro, ivan, mariya ];
+
+// function sortByAge(arr) {
+//    return arr.sort((a, b) => a.age - b.age);
+// }
+// console.log(sortByAge(arr));
+
+
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 29 };
+
+// let arr = [ john, pete, mary ];
+// function getAverageAge(arr) {
+//     return arr.reduce((value, item) => value += item.age, 0) / arr.length;
+// }
+// console.log( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+
+
+// let users = [
+//   {id: 'іван', name: "Іван Іванко", age: 20},
+//   {id: 'ганна', name: "Ганна Іванко", age: 24},
+//   {id: 'петро', name: "Петро Петренко", age: 31},
+// ];
+// function groupById(arr) {
+//     return arr.reduce((obj, item) => {
+//         obj[item.id] = item;
+//         return obj;
+//     }, {});
+// }
+// let usersById = groupById(users);
+// console.log(usersById);
 
 
