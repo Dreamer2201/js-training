@@ -56,3 +56,49 @@ function sumTo3(n) {
 }
 console.log( sumTo3(5) );
 
+
+// 
+function sumAll(...args) { // args – це ім’я масиву
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+console.log( sumAll(1) ); // 1
+console.log( sumAll(1, 2) ); // 3
+console.log( sumAll(1, 2, 3) ); // 6
+
+
+// синтаксис розширення
+let arr = [3, 5, 1];
+console.log(Math.max(...arr)); // 5 (перетворює масив у список аргументів)
+
+// 
+let arr1 = [3, 5, 1];
+let arr2 = [8, 9, 15];
+let merged = [0, ...arr, 2, ...arr2];
+console.log(merged); // 0,3,5,1,2,8,9,15 (0, then arr, then 2, then arr2)
+
+// 
+let str = "Hello";
+
+// Array.from перетворює ітерабельний об'єкт в масив
+console.log( Array.from(str) ); // H,e,l,l,o
+console.log( [...str] ); // H,e,l,l,o
+
+
+// Створити копію масива/об’єкта
+let arr3 = [1, 2, 3];
+let arrCopy = [...arr3]; // розширить масив у список параметрів
+                        // а потім помістіть результат у новий масив
+// чи мають масиви однаковий вміст?
+console.log(JSON.stringify(arr3) === JSON.stringify(arrCopy)); // true
+// чи масиви однакові?
+console.log(arr3 === arrCopy); // false (не однакові посилання)
+// зміна нашого початкового масиву не змінює копію:
+arr3.push(4);
+console.log(arr3); // 1, 2, 3, 4
+console.log(arrCopy); // 1, 2, 3
+
+// Цей спосіб копіювання об’єкта набагато коротший, ніж let objCopy = Object.assign({}, obj) чи для масиву let arrCopy = Object.assign([], arr) тому ми вважаємо за краще використовувати його, коли це можливо.
+
+
