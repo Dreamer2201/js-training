@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <p><a href="index.html">Go back</a></p>
+
+    <form action="">
+        <div role="group" aria-labelledby="user-contacts-information">
+            <p id="user-contacts-information">Enter your contacts information</p>
+            <label for="user_name">Enter your name, please</label>
+        <input type="text" id="user_name" name="username" autofocus required>
+        <label for="user_mail">Your e-mail</label>
+        <input type="text" id="user_mail" name="usermail">
+        <label for="user_tel">Your tel. number</label>
+        <input type="tel" id="user_tel" name="usertel" required>
+        <label>
+            <input type="number" name="height" value="100" min="100" max="220" step="0.5">
+        </label>
+        </div>
+
+        <div role="group" aria-labelledby="work">
+            <p id="work">Your current courses</p>
+            <label>
+                <input type="radio" name="courses" value="HTML" checked>
+                <input type="radio" name="courses" value="CSS">
+                <input type="radio" name="courses" value="JS">
+                <input type="radio" name="courses" value="React">
+            </label>
+            <label>
+                <input type="checkbox" name="courses" value="HTML" checked>
+                <input type="checkbox" name="courses" value="CSS">
+                <input type="checkbox" name="courses" value="JS">
+                <input type="checkbox" name="courses" value="React">
+            </label>
+            <label>
+                <input type="range" name="interesting_html" value="80" min="0" max="100" >
+            </label>
+        </div>
+
+        <input type="date">
+        <input type="time" name="" id="">
+        <input type="datetime" name="" id="" min="2023-01-01T00:00" max="2023-01-31T00:00">
+
+        <div role="group" aria-labelledby="wishes-for-new-year">
+            <p id="wishes-for-new-year"></p>
+            <textarea name="wishes" rows="7" placeholder="Type your wishes for Cristmas" ></textarea>
+        <label for="prioritetes"></label>
+        <select name="prioritetes" id="prioritetes">
+            <option value="f">Family</option>
+            <input type="range" name="life" min="0" max="100">
+            <option value="w">Work</option>
+            <input type="range" name="life" min="0" max="100">
+            <option value="h">Helsh</option>
+            <input type="range" name="life" min="0" max="100">
+            <option value="i">Interestings / Hobbies</option>
+            <input type="range" name="life" min="0" max="100">
+            <option value="s">Son's growth</option>
+            <input type="range" name="life" min="0" max="100">
+        </select>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
