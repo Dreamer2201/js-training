@@ -1,6 +1,10 @@
+:root {
+  --brand-bg-color: #220055;
+}
 body {
+  background-color: lightgreen;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 h1 {
@@ -8,4 +12,13 @@ h1 {
 }
 h2 {
   font-size: 1.2em;
+}
+
+.form {
+  color: var(--brand-bg-color);
+  background-color: peachpuff;
+}
+form:focus-within {
+  background: #ff8;
+  color: black;
 }

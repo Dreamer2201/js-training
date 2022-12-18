@@ -1,0 +1,16 @@
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 2fr 150px;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+
+}
+
+.list-it {
+    outline: 1px solid grey;
+}
+/* .list-it:not(:last-child) {
+    margin-top: 20px;
+} */

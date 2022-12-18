@@ -117,4 +117,140 @@
 //   () => alert("Ви скасували виконання.")
 // );
 
+// 
+function makeWorker() {
+  let name = "Петро";
+  return function () {
+    name = "Oksana"
+    console.log(name);
+  };
+}
+let name = "Іван";
+// створити функцію
+let work = makeWorker();
+
+// викликати її
+console.log(makeWorker()); // Що вона покаже?
+work();
+
+
+// 
+function makeCounter() {
+  let count = 0;
+  return function() {
+    return count++;
+  };
+}
+let counter = makeCounter();
+let counter2 = makeCounter();
+console.log( counter() ); // 0
+console.log(counter()); // 1
+console.log(counter());
+console.log( counter2() ); // ?
+console.log( counter2() ); // ?
+
+// 
+function Counter4() {
+  let count = 0;
+  this.up = function () {
+    return count++;
+  };
+  this.down = function () {
+    return --count;
+  };
+}
+let counter4 = new Counter4();
+console.log(counter4.up());
+console.log(counter4.up());
+console.log(counter4.up());
+
+console.log(counter4.down());
+console.log(counter4.down());
+
+// sum(a)(b) = a+b.
+
+function sum(a) {
+  return function (b) {
+    return a + b;
+  }
+}
+console.log(sum(1)(2));
+
+// !!!
+let x = 1;
+function func() {
+    // локальна змінна `x` відома рушію з початку функції,
+  // але вона "неініціалізова" (непридатна) до let ("мертва зона")
+  // звідси помилка
+  console.log(x); // ?
+  // let x = 2;
+}
+func();
+
+
+// !!!
+let users = [
+  { name: "Іван", age: 20, surname: "Іванов" },
+  { name: "Петро", age: 18, surname: "Петров" },
+  { name: "Енн", age: 19, surname: "Гетевей" }
+];
+
+function byField(value) {
+  return function (a, b) {
+    return a[value] > b[value] ? 1 : -1
+  };
+  // return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
+}
+console.log(users.sort(byField("age")));
+
+
+// 
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+      let j = i;
+      let shooter = function() { // функція shooter
+        console.log( j ); // має показати свій номер
+      };
+    shooters.push(shooter);
+    i++;
+  }
+  return shooters;
+}
+let army = makeArmy();
+army[0]();
+army[1]();
+army[2]();
+
+
+
+
+// 
+function sayHi() {
+  console.log("Привіт");
+  // давайте порахувати, скільки викликів функції ми зробили
+  sayHi.counter++;
+}
+sayHi.counter = 0; // початкове значення
+sayHi(); // Привіт
+sayHi(); // Привіт
+console.log( `Викликана ${sayHi.counter} рази` ); // Викликана 2 рази
+
+
+// 
+let sayHi1 = function func(who) {
+  if (who) {
+    console.log(`Привіт, ${who}`);
+  } else {
+    func("Гість"); // використовує func для повторного виклику
+  }
+};
+sayHi1("Oksana"); // Привіт, Oksana
+sayHi1(); // Привіт, Гість
+
+
+
+
 

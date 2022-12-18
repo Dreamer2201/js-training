@@ -5,22 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="css/styles-common.css" />
 </head>
 <body>
     <p><a href="index.html">Go back</a></p>
 
-    <form action="">
-        <div role="group" aria-labelledby="user-contacts-information">
+    <form class="form" action="">
+        <div class="form-usercontacts" role="group" aria-labelledby="user-contacts-information">
             <p id="user-contacts-information">Enter your contacts information</p>
-            <label for="user_name">Enter your name, please</label>
+            <label for="user_name">Enter your name, please: </label>
         <input type="text" id="user_name" name="username" autofocus required>
+        <br>
         <label for="user_mail">Your e-mail</label>
         <input type="text" id="user_mail" name="usermail">
+        <br>
         <label for="user_tel">Your tel. number</label>
         <input type="tel" id="user_tel" name="usertel" required>
+        <br>
         <label>
             <input type="number" name="height" value="100" min="100" max="220" step="0.5">
         </label>
+        <input type="checkbox"> Запам'ятати мене
         </div>
 
         <div role="group" aria-labelledby="work">
