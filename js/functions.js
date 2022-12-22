@@ -149,6 +149,7 @@ console.log(counter());
 console.log( counter2() ); // ?
 console.log( counter2() ); // ?
 
+
 // 
 function Counter4() {
   let count = 0;
@@ -251,6 +252,20 @@ sayHi1("Oksana"); // Привіт, Oksana
 sayHi1(); // Привіт, Гість
 
 
+// 
+function greet(clientName) {
+  return `${clientName}, ласкаво просимо в «${this.service}».`;
+}
 
+const steam = {
+  service: "Steam",
+};
+const steamGreeter = greet.bind(steam);
+console.log(steamGreeter("Манго"));
+steamGreeter("Манго"); // "Манго, ласкаво просимо в «Steam»."
 
-
+const gmail = {
+  service: "Gmail",
+};
+const gmailGreeter = greet.bind(gmail);
+gmailGreeter("Полі"); // "Полі, ласкаво просимо в «Gmail»."
