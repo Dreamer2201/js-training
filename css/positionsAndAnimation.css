@@ -1,6 +1,6 @@
 
 .title {
-    margin: 0;
+    margin-top: 20px;
     font-size: 18px;
     background-color: darkblue;
     color: yellow;
@@ -51,8 +51,16 @@
     top: 0;
     text-align: center;
 }
+
+.section:nth-child(1) {
+        height: 200px;
+            border: 1px dashed red;
+            overflow: scroll;
+}
+
 .section:nth-child(1) .section-title {
-    background-image: repeating-linear-gradient(to bottom, blue, blue 50%, yellow 50%, yellow 100%)
+    background-image: repeating-linear-gradient(to bottom, blue, blue 50%, yellow 50%, yellow 100%);
+
 }
 .section:nth-child(2) .section-title {
     background-image: repeating-linear-gradient(-45deg,
@@ -69,4 +77,46 @@
 }
 .section:nth-child(4) .section-title {
     background-image: repeating-linear-gradient(to right, blue, blue 50%, yellow 50%, yellow 100%)
+}
+
+/* overflow img */
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.thumb {
+    border: 2px solid red;
+    border-radius: 25px;
+    width: 500px;
+    overflow: hidden;
+}
+
+/* Hidden text */
+.box-overlay {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 20px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+.box-overlay:hover .overlay {
+    transform: translateX(0);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 500ms ease;
+
+    padding: 5px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
