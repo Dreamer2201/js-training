@@ -49,5 +49,24 @@
 .section-title {
     position: sticky;
     top: 0;
-
+    text-align: center;
+}
+.section:nth-child(1) .section-title {
+    background-image: repeating-linear-gradient(to bottom, blue, blue 50%, yellow 50%, yellow 100%)
+}
+.section:nth-child(2) .section-title {
+    background-image: repeating-linear-gradient(-45deg,
+        blue,
+        blue 20px,
+        yellow 20px,
+        yellow 40px);
+}
+.section:nth-child(3) .section-title {
+    background-image: repeating-radial-gradient(circle, red,
+    red 15px,
+    green 15px,
+    green 30px);
+}
+.section:nth-child(4) .section-title {
+    background-image: repeating-linear-gradient(to right, blue, blue 50%, yellow 50%, yellow 100%)
 }
