@@ -39,4 +39,5 @@ function printNumbers(from, to) {
         } current++;
     }, 1000);
 }
-console.log(printNumbers(2,5));
+// console.log(printNumbers(2,5));
+

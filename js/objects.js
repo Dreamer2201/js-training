@@ -120,14 +120,44 @@ console.log(sum / quntity.length);
 // console.log(menu);
 
 // 11 клонування об'єктів
-// let user = {
-//   name: "Іван",
-//   age: 30
-// };
-// let clone = {
-//     surname: "Poliakova",
-// };
-// clone = Object.assign(clone, user);
-// console.log(clone);
-// console.log(user.age === clone.age);
+let user = {
+  name: "Іван",
+  age: 30
+};
+let clone = {
+    surname: "Poliakova",
+};
+clone = Object.assign(clone, user);
+console.log(clone);
+console.log(user.age === clone.age);
 
+
+// 
+let descriptor = Object.getOwnPropertyDescriptors(user, 'name');
+console.log(descriptor);
+Object.defineProperty(user, 'name', {
+    writable: false,
+});
+
+user.name = 'Oksana';
+console.log(user);
+
+
+// !!!!!!!!!!!!! getter and setter
+let customer = {
+    name: "Oksana",
+    age: 36,
+    get getName() {
+        return this.name;
+    }
+}
+
+console.log(customer.getName);
+
+Object.defineProperty(customer, 'changeAge', {
+    set: function (newAge) {
+        return this.age = newAge;
+    }
+})
+customer.changeAge = 37;
+console.log(customer.age);

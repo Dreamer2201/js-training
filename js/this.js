@@ -51,3 +51,25 @@ let calculator = {
 calculator.read();
 console.log( calculator.sum() );
 console.log( calculator.mul() );
+
+
+// callback and this
+const customer = {
+  firstName: "Jacob",
+  lastName: "Mercer",
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+const userJac = {
+  firstName: "Jacob",
+  lastName: "Mercer"
+}
+userJac.fullName = customer.getFullName;
+console.log(userJac.fullName());
+
+function makeMessage(callback) {
+  // callback() - це виклик методу getFullName без об'єкта
+  console.log(`Обробляємо заявку від ${callback()}.`);
+}
+makeMessage(customer.getFullName.bind(customer)); // Буде помилка у виклику функції

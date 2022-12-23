@@ -269,3 +269,56 @@ const gmail = {
 };
 const gmailGreeter = greet.bind(gmail);
 gmailGreeter("Полі"); // "Полі, ласкаво просимо в «Gmail»."
+
+
+function sayHi(text) {
+  return `${this.customerName}, ${text}`;
+}
+const customerOne = {
+  customerName: 'Oksana'
+}
+const customerTwo = {
+  customerName: 'Dima'
+}
+const customerThrie = {
+  customerName: 'Denys'
+}
+console.log(sayHi.call(customerOne, 'wellcome!'));
+console.log(sayHi.call(customerTwo, 'good day!'));
+console.log(sayHi.apply(customerThrie, ['good morning!']));
+
+
+// bind
+function askPassword(ok, fail) {
+  let password = prompt("Пароль?", '');
+  if (password == "rockstar") ok();
+  else fail();
+}
+let user = {
+  name: 'Іван',
+  loginOk() {
+    console.log(`${this.name} увійшов`);
+  },
+  loginFail() {
+    console.log(`${this.name} виконав невдалу спробу входу`);
+  },
+};
+askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+
+// 
+function askPassword(ok, fail) {
+  let password = prompt("Пароль?", '');
+  if (password == "rockstar") ok();
+  else fail();
+}
+let userRockstar = {
+  name: 'Іван',
+  login(result) {
+    console.log( this.name + (result ? ' увійшов' : ' виконав невдалу спробу входу') );
+  }
+};
+
+askPassword(userRockstar.login.bind(userRockstar, true), userRockstar.login.bind(userRockstar, false)); // ?
+
+
