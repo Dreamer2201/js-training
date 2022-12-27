@@ -151,7 +151,6 @@ let customer = {
         return this.name;
     }
 }
-
 console.log(customer.getName);
 
 Object.defineProperty(customer, 'changeAge', {
@@ -161,3 +160,101 @@ Object.defineProperty(customer, 'changeAge', {
 })
 customer.changeAge = 37;
 console.log(customer.age);
+
+
+// _proto_
+let animal = {
+  jumps: null
+};
+let rabbit = {
+    __proto__: animal,
+    jumps: true,
+  
+};
+console.log(rabbit);
+console.log( rabbit.jumps ); // ? (true)
+delete rabbit.jumps;
+console.log( rabbit.jumps ); // ? (null)
+delete animal.jumps;
+console.log(rabbit.jumps); // ? (enderfined)
+console.log(rabbit);
+
+
+// 
+let head = {
+  glasses: 1
+};
+let table = {
+    pen: 3,
+    __proto__: head,
+};
+let bed = {
+  sheet: 1,
+    pillow: 2,
+  __proto__: table,
+};
+let pockets = {
+    money: 2000,
+    __proto__: bed,
+};
+console.log(pockets.pen);
+console.log(bed.glasses);
+console.log(table.money);
+
+
+// 
+let animalOne = {
+  eat() {
+    this.full = true;
+  }
+};
+
+let rabbitOne = {
+  __proto__: animalOne
+};
+rabbitOne.eat();
+console.log(rabbitOne);
+console.log(rabbitOne.eat);
+console.log(rabbitOne.full);
+
+
+// 
+let hamster = {
+  stomach: [],
+  eat(food) {
+    this.stomach = [food];
+  }
+};
+let speedy = {
+  __proto__: hamster
+};
+let lazy = {
+  __proto__: hamster
+};
+// Цей хом’ячок знайшов їжу
+speedy.eat("apple"); // speedy.stomach: ["apple"]
+speedy.eat("pear"); // speedy.stomach: ["pear"]
+console.log(hamster);
+console.log( speedy.stomach ); // pear
+console.log( lazy.stomach ); // []
+
+
+// 
+let animalTwo = {
+  eats: true
+};
+function Rabbit(name) {
+  this.name = name;
+}
+Rabbit.prototype = animalTwo;
+let rabbitTwo = new Rabbit("White Rabbit"); //  rabbitTwo.__proto__ == animal
+console.log( rabbitTwo.eats ); // true
+
+
+// 
+let object = {
+  cat: 'home',
+  bear: 'wild'
+};
+let key = prompt("Введіть ключ", "__proto__");
+console.log(object[key]); // [object Object], не "певне значення"!
