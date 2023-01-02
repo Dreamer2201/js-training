@@ -108,5 +108,67 @@ let data = {
   }
 };
 
+console.log(Object.keys(data));
+
+ 
 let container = document.getElementById('container');
-// createTree(container, data); // створює дерево в контейнері
+
+function createTree(container, obj) {
+  container.append(createTreeDom(obj));
+}
+
+function createTreeDom(obj) {
+  if (!Object.keys(obj).length) return;
+
+  let ul = document.createElement('ul');
+    for (let key in obj) {
+      let li = document.createElement('li');
+      li.innerHTML = key;
+      let childrenUl = createTreeDom(obj[key]);
+      if (childrenUl) {
+        li.append(childrenUl);
+      }
+      ul.append(li);
+    }
+  return ul;
+}
+createTree(container, data);
+
+// 
+let lis = document.getElementsByTagName('li');
+console.log(lis);
+    for (let li of lis) {
+      // порахуйте всі вкладені <li> всередині поточного <li>
+      let descendantsCount = li.getElementsByTagName('li').length;
+      if (!descendantsCount) continue;
+
+      // додайте результат безспосередньо до текстового вузла
+      li.firstChild.data += ' [' + descendantsCount + ']';
+    }
+
+    // 
+let elemData = document.querySelector('[data-widget-name]');
+console.log(elemData.classList);
+let attr = elemData.dataset.widgetName;
+console.log(attr);
+
+//
+
+function showNotification({top = 0, right = 0, message}) {
+  let notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.style.position = 'fixed';
+  notification.style.top = top + 'px';
+  notification.style.right = right + 'px';
+  notification.style.backgroundColor = 'green';
+  notification.innerHTML = message;
+  document.body.append(notification);
+  setTimeout(() => notification.remove(), 1500);
+}
+ 
+setInterval(() => showNotification({
+  top: 20,
+  right: 20,
+  message: "Wellcome"
+}), 2000);
+
