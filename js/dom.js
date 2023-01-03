@@ -24,7 +24,13 @@ let table = document.body.children[1];
         console.log(row.cells);
         row.cells[i].style.backgroundColor = 'red';
 }
-    
+
+ // get td with "2:1" (first row, second column)
+let tdate = table.rows[0].cells[1];
+console.log(tdate);
+tdate.style.backgroundColor = "green"; // highlight it
+  
+
 let elements = document.querySelectorAll('ul > li:last-child');
 console.log(elements);
 
@@ -171,4 +177,5 @@ setInterval(() => showNotification({
   right: 20,
   message: "Wellcome"
 }), 2000);
+
 

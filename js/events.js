@@ -57,35 +57,79 @@ btnTextHidden.addEventListener('click', function () {
 })
 
 // moving ball
+let field = document.getElementById('field');
+let ball = document.getElementById('ball');
 field.addEventListener('click', moveBall);
 function moveBall(event) {
-      // координати поля щодо вікна браузера
-      let fieldCoords = this.getBoundingClientRect();
-
-      // м’яч має абсолютне позиціювання (position:absolute), поле -- відносне (position:relative)
-      // таким чином, координати м’яча розраховуються відносно внутрішнього, верхнього лівого кута поля.
-      let ballCoords = {
-        top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
-        left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
-      };
-
-      // забороняємо перетинати верхню межу поля
-      if (ballCoords.top < 0) ballCoords.top = 0;
-
-      // забороняємо перетинати ліву межу поля
-      if (ballCoords.left < 0) ballCoords.left = 0;
-
-
-      // забороняємо перетинати праву межу поля
-      if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-        ballCoords.left = field.clientWidth - ball.clientWidth;
-      }
-
-      // забороняємо перетинати нижню межу поля
-      if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-        ballCoords.top = field.clientHeight - ball.clientHeight;
-      }
-
-      ball.style.left = ballCoords.left + 'px';
-      ball.style.top = ballCoords.top + 'px';
+    let coordsField = field.getBoundingClientRect();
+    console.log(coordsField);
+    // м’яч має абсолютне позиціювання (position:absolute), поле -- відносне (position:relative)
+    // таким чином, координати м’яча розраховуються відносно внутрішнього, верхнього лівого кута поля.
+    let ballsCoords = {
+        top: event.clientY - coordsField.top - field.clientTop - ball.clientHeight / 2,
+        left: event.clientX - coordsField.left - field.clientLeft - ball.clientWidth / 2,
+    };
+    // забороняємо перетинати верхню межу поля:
+    if (ballsCoords.top < 0) ballsCoords.top = 0;
+    // забороняємо перетинати ліву межу поля:
+    if (ballsCoords.left < 0) ballsCoords.left = 0;
+    // забороняємо перетинати праву межу поля:
+    if (ballsCoords.left + ball.clientWidth > field.clientWidth) {
+        ballsCoords.left = field.clientWidth - ball.clientWidth;
+    };
+    // забороняємо перетинати нижню межу поля:
+    if (ballsCoords.top + ball.clientHeight > field.clientHeight) {
+        ballsCoords.top = field.clientHeight - ball.clientHeight;
     }
+    ball.style.top = ballsCoords.top + 'px';
+    ball.style.left = ballsCoords.left + 'px';
+}
+
+
+    // 
+console.log(document);
+let centerX = document.documentElement.clientWidth / 2;
+let centerY = document.documentElement.clientHeight / 2;
+console.log(centerX, centerY);
+
+let elemCenter = document.elementFromPoint(centerX, centerY);
+elem.style.background = "red";
+console.log(elem.tagName);
+
+
+// show message
+let btnShowMes = document.getElementById('showingmessage');
+btnShowMes.addEventListener('click', createMessageUnderElem);
+
+function createMessageUnderElem() {
+    let message = document.createElement('div');
+    message.style.cssText = "position:fixed; color: red";
+    let coords = btnShowMes.getBoundingClientRect();
+    message.style.left = coords.left + "px";
+    message.style.top = coords.bottom + "px";
+    console.log(coords);
+    message.innerHTML = "Merry Christmas!";
+    document.body.append(message);
+    setTimeout(() => message.remove(), 3000);
+}
+ 
+
+// отримуємо координати елемента відносно документа
+function getCoords(elem) {
+    let rect = elem.getBoundingClientRect();
+    return {
+        top: rect.top + window.scrollY,
+        right: rect.right + window.scrollX,
+        bottom: rect.bottom + window.pageYOffset,
+        left: rect.left + window.pageXOffset
+    }
+}
+console.log(getCoords(btnShowMes));
+
+
+// open menu:
+let menuOpen = document.querySelector('.menu');
+let menuTitle = document.querySelector('.title')
+menuTitle.addEventListener('click', function () {
+    menuOpen.classList.toggle('open');
+})
