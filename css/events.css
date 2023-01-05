@@ -1,0 +1,10 @@
+
+.container,
+.imgs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgs {
+    list-style: none;
+}

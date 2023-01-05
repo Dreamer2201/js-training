@@ -133,3 +133,63 @@ let menuTitle = document.querySelector('.title')
 menuTitle.addEventListener('click', function () {
     menuOpen.classList.toggle('open');
 })
+
+// карусель
+
+let arrBtn = document.querySelectorAll('.arrow');
+let btnPrev = arrBtn[0];
+let btnNext = arrBtn[1];
+
+let width = 130; // ширина зображення
+let count = 3; // видима кількість зображень
+let list = carousel.querySelector('ul');
+let listElems = carousel.querySelectorAll('li');
+let position = 0; // початкова позиція каруселі
+
+btnPrev.addEventListener('click', function () {
+    // зсув ліворуч
+    position += width * count;
+      // останній зсув вліво може бути не на 3, а на 2 або 1 елемент
+    position = Math.min(position, 0)
+    console.log(position);
+      list.style.marginLeft = position + 'px';
+})
+btnNext.addEventListener('click', function () {
+    // зсув праворуч
+      position -= width * count;
+      // останнє пересування вправо може бути не на 3, а на 2 або 1 елемент
+      position = Math.max(position, -width * (listElems.length - count));
+      list.style.marginLeft = position + 'px';
+})
+   
+
+// counter
+document.addEventListener('click', function (event) {
+    if (event.target.dataset.counter != undefined) {
+        event.target.value++;
+    }
+})
+
+// делегування подій
+container.addEventListener('click', function (event) {
+    if (event.target.className != 'remove-button') return;
+    let selectedPane = event.target.closest('.pane');
+    selectedPane.remove();
+});
+
+
+// делегування подій, відкриття та закриття меню
+let items = tree.querySelectorAll('li');
+    for (let li of items) {
+        let span = document.createElement('span');
+        li.prepend(span);
+        span.append(span.nextSibling);
+};
+    
+tree.addEventListener('click', openCloseMenu);
+function openCloseMenu(event) {
+    if (event.target.tagName != 'SPAN') return;
+    let childrenList = event.target.parentNode.querySelector('ul');
+    if (!childrenList) return;
+    childrenList.hidden = !childrenList.hidden;
+}

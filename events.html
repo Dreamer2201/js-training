@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
     <link rel="stylesheet" href="css/ball.css" />
+    <link rel="stylesheet" href="css/events.css">
 </head>
 <body>
     <p><a href="index.html">Go back</a></p>
@@ -42,6 +43,90 @@
         </ul>
     </div>
     
+    <h2>Завдання карусель</h2>
+    <div class="carousel" id="carousel">
+    <button class="arrow">⇦</button>
+    <ul class="imgs">
+        <li><img src="https://en.js.cx/carousel/1.png"></li>
+        <li><img src="https://en.js.cx/carousel/2.png"></li>
+        <li><img src="https://en.js.cx/carousel/3.png"></li>
+        <li><img src="https://en.js.cx/carousel/4.png"></li>
+        <li><img src="https://en.js.cx/carousel/5.png"></li>
+        <li><img src="https://en.js.cx/carousel/6.png"></li>
+        <li><img src="https://en.js.cx/carousel/7.png"></li>
+        <li><img src="https://en.js.cx/carousel/8.png"></li>
+        <li><img src="https://en.js.cx/carousel/9.png"></li>
+        <li><img src="https://en.js.cx/carousel/10.png"></li>
+    </ul>
+    <button class="arrow">⇨</button>
+    </div>
+
+    <h2>Counter</h2>
+    <input type="button" value="1" data-counter>
+    <input type="button" value="2" data-counter>
+
+    <h2>делегування подій</h2>
+    <div id="container">
+        <div class="pane">
+            <h3>Кінь</h3>
+            <p>Кінь є одним із двох існуючих підвидів дикого коня (Equus ferus). Це парнокопитний ссавець, що належить до
+                таксономічної родини коневих (Equidae). За останні 45-55 мільйонів років кінь еволюціонував із маленької
+                багатопалої істоти, Еогіппа (Eohippus), до великої однопалої тварини сучасності.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осел</h3>
+            <p>Осел (Equus africanus asinus) є одомашненим представником сімейства коней (Equidae). Диким предком осла є
+                африканський дикий осел (E. africanus). Осел використовувався як робоча тварина щонайменше 5000 років.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Кіт</h3>
+            <p>Домашній кіт (лат. Felis catus) — невеликий, типово пухнастий, хижий ссавець. Їх часто називають домашніми
+                котами, якщо їх триваюсь вдома, або просто котами, коли немає необхідності відрізняти їх від інших котячих.
+                Люди часто цінують котів за товариські стосунки і за їх здатність полювати на шкідників.
+            </p>
+            <button class="remove-button">[x]</button>
+        </div>
+    </div>
+
+    <h2>делегування подій, відкриття та закриття меню</h2>
+    <ul class="tree" id="tree">
+    <li>Тварини
+      <ul>
+        <li>Ссавці
+          <ul>
+            <li>Корови</li>
+            <li>Осли</li>
+            <li>Собаки</li>
+            <li>Тигри</li>
+          </ul>
+        </li>
+        <li>Інші
+          <ul>
+            <li>Змії</li>
+            <li>Птахи</li>
+            <li>Ящірки</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Риби
+      <ul>
+        <li>Акваріумні
+          <ul>
+            <li>Гуппі</li>
+            <li>Риба-янгол</li>
+          </ul>
+        </li>
+        <li>Морські
+          <ul>
+            <li>Морська форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
     <script src="js/events.js"></script>
 </body>
 </html>
